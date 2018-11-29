@@ -37,8 +37,6 @@ namespace Arctium.Server.Sts.Console
             {
                 Thread.Sleep(50);
 
-                Log.Message(LogTypes.None, $"{StsServer.Alias}@StsServer:$ ", false);
-
                 var line = System.Console.ReadLine()?.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
 
                 if (line?.Length > 0)
@@ -50,13 +48,18 @@ namespace Arctium.Server.Sts.Console
                     {
                         var argCount = command.GetMethodInfo().GetCustomAttribute<ConsoleCommandAttribute>().Arguments;
 
-                        if (args.Length == argCount)
+                        if (args.Length >= argCount)
                             command.Invoke(new CommandArgs(args));
                         else
-                            Log.Message(LogTypes.Warning, $"Wrong argument count for '{cmd}' command.");
+                        {
+                            // TODO: Print command description.
+                            Log.Message(LogTypes.Warning, $"Wrong arguments for '{cmd}' command.");
+                        }
                     }
                     else
                         Log.Message(LogTypes.Warning, $"'{cmd}' command doesn't exists.");
+
+                    Log.NewLine();
                 }
             }
         }

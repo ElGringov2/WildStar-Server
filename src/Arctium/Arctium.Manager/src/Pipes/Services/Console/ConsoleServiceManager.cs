@@ -48,6 +48,9 @@ namespace Arctium.Manager.Pipes.Services.Console
 
             if (Attached && child != null)
             {
+                // Disable server manager console output.
+                Log.PauseConsoleOut();
+
                 // Clear the console.
                 Log.Clear();
 
@@ -70,6 +73,9 @@ namespace Arctium.Manager.Pipes.Services.Console
                 Log.Clear();
 
                 child?.Item2.CancelOutputRead();
+
+                // Resume server manager console output.
+                Log.ResumeConsoleOut();
 
                 SelectedChild = null;
                 Attached = false;
@@ -107,39 +113,45 @@ namespace Arctium.Manager.Pipes.Services.Console
                 StartInfo = new ProcessStartInfo
                 {
                     FileName = servers[server],
-                    Arguments = args,
+                    // Alias is always required here.
+                    Arguments = $"--alias {alias} {args}",
                     UseShellExecute = false,
                     CreateNoWindow = false,
                     RedirectStandardInput = true,
-                    RedirectStandardOutput = true
+                    RedirectStandardOutput = true,
                 }
             };
 
             process.OutputDataReceived += (sender, obj) =>
             {
-                var splitIndex = obj.Data?.IndexOf("|") ?? -1;
-
-                if (splitIndex != -1)
+                if (obj.Data != null)
                 {
-                    var splitIndex2 = obj.Data.IndexOf('|', splitIndex + 1) - splitIndex - 1;
+                    var splitIndex = obj.Data.IndexOf("|");
 
-                    if (splitIndex2 != -1 && Enum.TryParse(obj.Data.Substring(splitIndex + 1, splitIndex2), out LogTypes logTypes))
+                    if (splitIndex != -1)
                     {
-                        var logMessage = obj.Data.Split(new[] { "|" }, StringSplitOptions.None);
+                        var splitIndex2 = obj.Data.IndexOf('|', splitIndex + 1) - splitIndex - 1;
 
-                        if (logTypes != LogTypes.None)
+                        if (splitIndex2 != -1 && Enum.TryParse(obj.Data.Substring(splitIndex + 1, splitIndex2), out LogTypes logTypes))
                         {
-                            System.Console.Write($"{logMessage[0]}|");
+                            var logMessage = obj.Data.Split(new[] { "|" }, StringSplitOptions.None);
 
-                            System.Console.ForegroundColor = Logger.LogTypeInfo[logTypes].Item1;
-                            System.Console.Write(Logger.LogTypeInfo[logTypes].Item2);
-                            System.Console.ForegroundColor = ConsoleColor.White;
+                            if (logTypes != LogTypes.None)
+                            {
+                                System.Console.Write($"{logMessage[0]}|");
 
-                            System.Console.WriteLine($"|{logMessage[2]}");
+                                System.Console.ForegroundColor = Logger.LogTypeInfo[logTypes].Item1;
+                                System.Console.Write(Logger.LogTypeInfo[logTypes].Item2);
+                                System.Console.ForegroundColor = ConsoleColor.White;
+
+                                System.Console.WriteLine($"|{logMessage[2]}");
+                            }
+                            else
+                                System.Console.WriteLine(logMessage[2]);
                         }
-                        else
-                            System.Console.WriteLine(logMessage[2]);
                     }
+                    else
+                        System.Console.WriteLine(obj.Data);
                 }
             };
 
@@ -158,9 +170,9 @@ namespace Arctium.Manager.Pipes.Services.Console
 
             process.Start();
 
-            Childs.Add(alias, Tuple.Create(servers[server], process));
+            Log.Message(LogTypes.Info, $"Starting '{process.ProcessName}' with alias '{alias}'...");
 
-            Log.Message(LogTypes.Info, $"Started '{process.ProcessName}' with alias '{alias}'.");
+            Childs.Add(alias, Tuple.Create(servers[server], process));
         }
 
         public static async void Stop(string alias)

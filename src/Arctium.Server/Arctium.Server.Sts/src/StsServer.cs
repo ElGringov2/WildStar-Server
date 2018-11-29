@@ -5,7 +5,10 @@ using System;
 using System.CommandLine;
 using System.Threading;
 using Arctium.Core.Logging;
+using Arctium.Core.Misc;
+using Arctium.Core.Network.Pipes;
 using Arctium.Core.Network.Pipes.Messages;
+using Arctium.Server.Sts.Console;
 using Arctium.Server.Sts.Misc;
 using Arctium.Server.Sts.Pipes;
 using Arctium.Server.Sts.Pipes.Services.Console;
@@ -29,13 +32,16 @@ namespace Arctium.Server.Sts
             // Start console logging.
             Log.Start(StsConfig.LogLevel, new LogFile(StsConfig.LogDirectory, StsConfig.LogConsoleFile));
 
+
             using (ConsoleService = new ConsoleServicePipeClient(StsConfig.ServiceConsoleServer, StsConfig.ServiceConsolServerPipe))
             {
                 IPCPacketManager.DefineMessageHandler();
 
-                // Register console to ServerManager and start listening for incoming ipc packets.
-                ConsoleService.Send(new RegisterConsole { Alias = Alias.Value }).GetAwaiter().GetResult();
+                // Start listening for incoming ipc packets.
                 ConsoleService.Process();
+
+                // Register console to ServerManager.
+                ConsoleService.Send(new RegisterConsole { Alias = Alias.Value }).GetAwaiter().GetResult();
 
                 Database.Auth.Initialize(new ConnectorSettings
                 {
@@ -48,10 +54,13 @@ namespace Arctium.Server.Sts
                     ApiDeserializeFunction = JsonConvert.DeserializeObject<object[][]>
                 });
 
-                while (true)
-                {
-                    Thread.Sleep(1);
-                }
+                ConsoleCommandManager.InitializeCommands();
+
+                // Successfully started.
+                ConsoleService.Send(new ProcessStateInfo { State = PipeProcessState.Started, Alias = Alias.Value }).GetAwaiter().GetResult();
+
+                // Listen for console commands.
+                ConsoleCommandManager.StartCommandHandler();
             }
         }
 

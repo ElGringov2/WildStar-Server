@@ -23,7 +23,7 @@ namespace Arctium.Manager.Commands
             var server = args.Read<string>();
             var alias = args.Read<string>();
 
-            ConsoleServiceManager.Start(server, alias, $"--alias {alias}");
+            ConsoleServiceManager.Start(server, alias, args.JoinRemainingArgs());
         }
 
         [ConsoleCommand("stop", 1, "Stop...")]

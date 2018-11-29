@@ -27,6 +27,10 @@ namespace Arctium.Manager.Pipes.Services.Console
             switch (processStateInfo.State)
             {
                 // TODO: Implement on childs. Called in ConsoleManager.Stop for now.
+                case PipeProcessState.Started:
+                    Log.NewLine();
+                    Log.Message(LogTypes.Info, $"'{processStateInfo.Alias}' successfully started.");
+                    break;
                 case PipeProcessState.Stopped:
                     ConsoleServiceManager.RemoveConsoleClient(processStateInfo.Alias);
                     break;

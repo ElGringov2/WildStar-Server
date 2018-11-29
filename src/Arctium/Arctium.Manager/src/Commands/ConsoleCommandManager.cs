@@ -39,7 +39,7 @@ namespace Arctium.Manager.Commands
             {
                 Thread.Sleep(100);
 
-                Log.Message(LogTypes.None, CommandPrefix, false);
+                Console.Write(CommandPrefix);
 
                 var sLine = Console.ReadLine();
 
@@ -59,10 +59,13 @@ namespace Arctium.Manager.Commands
                         {
                             var argCount = command.GetMethodInfo().GetCustomAttribute<ConsoleCommandAttribute>().Arguments;
 
-                            if (args.Length == argCount)
+                            if (args.Length >= argCount)
                                 command.Invoke(new CommandArgs(args));
                             else
+                            {
+                                // TODO: Print command description.
                                 Log.Message(LogTypes.Warning, $"Wrong arguments for '{cmd}' command.");
+                            }
                         }
                         else
                             Log.Message(LogTypes.Warning, $"'{cmd}' command doesn't exists.");

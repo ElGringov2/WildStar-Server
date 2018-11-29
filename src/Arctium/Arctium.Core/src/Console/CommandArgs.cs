@@ -1,6 +1,8 @@
 ﻿// Copyright (c) Arctium.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+using System.Linq;
+
 namespace Arctium.Core.Console
 {
     public class CommandArgs
@@ -15,5 +17,8 @@ namespace Arctium.Core.Console
         }
 
         public T Read<T>() => args[index++].ChangeType<T>();
+        public string JoinRemainingArgs() => string.Join(" ", args.Skip(index));
+
+        public override string ToString() => string.Join(" ", args);
     }
 }

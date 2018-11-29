@@ -3,6 +3,7 @@
 
 using System;
 using System.Text;
+using System.Threading;
 using Arctium.Core.Logging;
 
 namespace Arctium.Core.Misc
@@ -42,9 +43,9 @@ namespace Arctium.Core.Misc
             var random = new Random((int)((uint)(Guid.NewGuid().GetHashCode() ^ 1 >> 89 << 2 ^ 42)).LeftRotate(13));
             var key = new byte[length];
 
-            for (int i = 0; i < length; i++)
+            for (var i = 0; i < length; i++)
             {
-                int randValue = -1;
+                var randValue = -1;
 
                 do
                 {

@@ -21,6 +21,8 @@ namespace Arctium.Core.Logging
             { LogTypes.Panic,   Tuple.Create(ConsoleColor.Red,       " Panic   ") },
         };
 
+        public bool ShowConsoleOut { get; set; }
+
         // No volatile support for properties, let's use a private backing field.
         public LogTypes LogTypes { get => logTypes; set => logTypes = value; }
 
@@ -36,6 +38,9 @@ namespace Arctium.Core.Logging
 
         public void Start(LogFile logFile = null)
         {
+            // Always write console output on launch.
+            ShowConsoleOut = true;
+
             var logThread = new Thread(() =>
             {
                 using (logQueue)
@@ -54,27 +59,33 @@ namespace Arctium.Core.Logging
                         // LogTypes.None is also used for empty/simple log lines (without timestamp, etc.).
                         if (log.Item1 != LogTypes.None)
                         {
-                            System.Console.ForegroundColor = ConsoleColor.White;
+                            if (ShowConsoleOut)
+                            {
+                                System.Console.ForegroundColor = ConsoleColor.White;
 
-                            System.Console.Write($"{log.Item2} |");
+                                System.Console.Write($"{log.Item2} |");
 
-                            System.Console.ForegroundColor = LogTypeInfo[log.Item1].Item1;
-                            System.Console.Write(LogTypeInfo[log.Item1].Item2);
-                            System.Console.ForegroundColor = ConsoleColor.White;
+                                System.Console.ForegroundColor = LogTypeInfo[log.Item1].Item1;
+                                System.Console.Write(LogTypeInfo[log.Item1].Item2);
+                                System.Console.ForegroundColor = ConsoleColor.White;
 
-                            if (log.Item4)
-                                System.Console.WriteLine($"| {log.Item3}");
-                            else
-                                System.Console.Write($"| {log.Item3}");
+                                if (log.Item4)
+                                    System.Console.WriteLine($"| {log.Item3}");
+                                else
+                                    System.Console.Write($"| {log.Item3}");
+                            }
 
                             logFile?.WriteAsync($"{log.Item2} |{LogTypeInfo[log.Item1].Item2}| {log.Item3}");
                         }
                         else
                         {
-                            if (log.Item4)
-                                System.Console.WriteLine(log.Item3);
-                            else
-                                System.Console.Write(log.Item3);
+                            if (ShowConsoleOut)
+                            {
+                                if (log.Item4)
+                                    System.Console.WriteLine(log.Item3);
+                                else
+                                    System.Console.Write(log.Item3);
+                            }
 
                             logFile?.WriteAsync(log.Item3);
                         }

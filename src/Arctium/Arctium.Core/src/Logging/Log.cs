@@ -22,8 +22,10 @@ namespace Arctium.Core.Logging
         }
 
         public static void Resume(LogTypes logTypes) => logger.LogTypes = logTypes;
-
         public static void Pause() => logger.LogTypes = LogTypes.None;
+
+        public static void ResumeConsoleOut() => logger.ShowConsoleOut = true;
+        public static void PauseConsoleOut() => logger.ShowConsoleOut = false;
 
         public static void Message(LogTypes logType, string text, bool newLine = true) => logger.Message(logType, text, newLine);
 
