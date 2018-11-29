@@ -7,29 +7,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{F3F9448B-F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servers", "Servers", "{C34FC239-FA05-4BBE-812E-4DD37A4CF380}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arctium.Server.Character", "src\Arctium.Server.Character\src\Arctium.Server.Character.csproj", "{9664A833-5A9B-465A-AF4C-5B0785DB0FB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arctium.Server.Character", "src\Arctium.Server\Arctium.Server.Character\src\Arctium.Server.Character.csproj", "{9664A833-5A9B-465A-AF4C-5B0785DB0FB5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arctium.Manager", "src\Arctium.Manager\src\Arctium.Manager.csproj", "{EC8842D6-97D9-4E30-8E1B-CC03BCA9D444}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arctium.Manager", "src\Arctium\Arctium.Manager\src\Arctium.Manager.csproj", "{EC8842D6-97D9-4E30-8E1B-CC03BCA9D444}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arctium.API", "src\Arctium.API\src\Arctium.API.csproj", "{1FB637C4-DA95-4A4E-8374-CAD761BCFF32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arctium.API", "src\Arctium\Arctium.API\src\Arctium.API.csproj", "{1FB637C4-DA95-4A4E-8374-CAD761BCFF32}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lappa.ORM", "deps\src\Lappa.ORM\src\Lappa.ORM\Lappa.ORM.csproj", "{4DDBFC4A-82E4-4592-972F-89114DBBBAC2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lappa.Pluralization", "deps\src\Lappa.ORM\deps\src\Lappa.Pluralization\src\Lappa.Pluralization.csproj", "{3DFE1172-8ADC-4DF8-A7F6-882D7CE0A25C}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Arctium.Shared", "src\Arctium.Shared\src\Arctium.Shared.shproj", "{438EACD8-80C9-4E43-AD21-88A2A0575AC9}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deps", "Deps", "{0015713A-F8F4-46B8-AD81-33F4588F2068}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arctium.Core", "src\Arctium.Core\src\Arctium.Core.csproj", "{C218C3AB-BE65-43F3-BC99-1018640E545A}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arctium.Server.Sts", "src\Arctium.Server.Sts\src\Arctium.Server.Sts.csproj", "{9762EC09-3C40-4AFE-89A6-3B812996C500}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arctium.Core", "src\Arctium\Arctium.Core\src\Arctium.Core.csproj", "{C218C3AB-BE65-43F3-BC99-1018640E545A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.CommandLine", "deps\src\System.CommandLine\System.CommandLine.csproj", "{AE4ECD2E-C457-463B-A65C-5A549C7EAE13}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Arctium.Shared", "src\Arctium\Arctium.Shared\src\Arctium.Shared.shproj", "{438EACD8-80C9-4E43-AD21-88A2A0575AC9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arctium.Server.Sts", "src\Arctium.Server\Arctium.Server.Sts\src\Arctium.Server.Sts.csproj", "{F1068F61-2880-44C7-9964-5B7CFC1BCF33}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		src\Arctium.Shared\src\Arctium.Shared.projitems*{438eacd8-80c9-4e43-ad21-88a2a0575ac9}*SharedItemsImports = 13
+		src\Arctium\Arctium.Shared\src\Arctium.Shared.projitems*{438eacd8-80c9-4e43-ad21-88a2a0575ac9}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|linux-x64 = Debug|linux-x64
@@ -112,18 +112,6 @@ Global
 		{C218C3AB-BE65-43F3-BC99-1018640E545A}.Release|mac-x64.Build.0 = Release|x64
 		{C218C3AB-BE65-43F3-BC99-1018640E545A}.Release|win-x64.ActiveCfg = Release|x64
 		{C218C3AB-BE65-43F3-BC99-1018640E545A}.Release|win-x64.Build.0 = Release|x64
-		{9762EC09-3C40-4AFE-89A6-3B812996C500}.Debug|linux-x64.ActiveCfg = Debug|linux-x64
-		{9762EC09-3C40-4AFE-89A6-3B812996C500}.Debug|linux-x64.Build.0 = Debug|linux-x64
-		{9762EC09-3C40-4AFE-89A6-3B812996C500}.Debug|mac-x64.ActiveCfg = Debug|mac-x64
-		{9762EC09-3C40-4AFE-89A6-3B812996C500}.Debug|mac-x64.Build.0 = Debug|mac-x64
-		{9762EC09-3C40-4AFE-89A6-3B812996C500}.Debug|win-x64.ActiveCfg = Debug|win-x64
-		{9762EC09-3C40-4AFE-89A6-3B812996C500}.Debug|win-x64.Build.0 = Debug|win-x64
-		{9762EC09-3C40-4AFE-89A6-3B812996C500}.Release|linux-x64.ActiveCfg = Release|linux-x64
-		{9762EC09-3C40-4AFE-89A6-3B812996C500}.Release|linux-x64.Build.0 = Release|linux-x64
-		{9762EC09-3C40-4AFE-89A6-3B812996C500}.Release|mac-x64.ActiveCfg = Release|mac-x64
-		{9762EC09-3C40-4AFE-89A6-3B812996C500}.Release|mac-x64.Build.0 = Release|mac-x64
-		{9762EC09-3C40-4AFE-89A6-3B812996C500}.Release|win-x64.ActiveCfg = Release|win-x64
-		{9762EC09-3C40-4AFE-89A6-3B812996C500}.Release|win-x64.Build.0 = Release|win-x64
 		{AE4ECD2E-C457-463B-A65C-5A549C7EAE13}.Debug|linux-x64.ActiveCfg = Debug|Any CPU
 		{AE4ECD2E-C457-463B-A65C-5A549C7EAE13}.Debug|linux-x64.Build.0 = Debug|Any CPU
 		{AE4ECD2E-C457-463B-A65C-5A549C7EAE13}.Debug|mac-x64.ActiveCfg = Debug|Any CPU
@@ -136,6 +124,18 @@ Global
 		{AE4ECD2E-C457-463B-A65C-5A549C7EAE13}.Release|mac-x64.Build.0 = Release|Any CPU
 		{AE4ECD2E-C457-463B-A65C-5A549C7EAE13}.Release|win-x64.ActiveCfg = Release|Any CPU
 		{AE4ECD2E-C457-463B-A65C-5A549C7EAE13}.Release|win-x64.Build.0 = Release|Any CPU
+		{F1068F61-2880-44C7-9964-5B7CFC1BCF33}.Debug|linux-x64.ActiveCfg = Debug|linux-x64
+		{F1068F61-2880-44C7-9964-5B7CFC1BCF33}.Debug|linux-x64.Build.0 = Debug|linux-x64
+		{F1068F61-2880-44C7-9964-5B7CFC1BCF33}.Debug|mac-x64.ActiveCfg = Debug|mac-x64
+		{F1068F61-2880-44C7-9964-5B7CFC1BCF33}.Debug|mac-x64.Build.0 = Debug|mac-x64
+		{F1068F61-2880-44C7-9964-5B7CFC1BCF33}.Debug|win-x64.ActiveCfg = Debug|win-x64
+		{F1068F61-2880-44C7-9964-5B7CFC1BCF33}.Debug|win-x64.Build.0 = Debug|win-x64
+		{F1068F61-2880-44C7-9964-5B7CFC1BCF33}.Release|linux-x64.ActiveCfg = Release|linux-x64
+		{F1068F61-2880-44C7-9964-5B7CFC1BCF33}.Release|linux-x64.Build.0 = Release|linux-x64
+		{F1068F61-2880-44C7-9964-5B7CFC1BCF33}.Release|mac-x64.ActiveCfg = Release|mac-x64
+		{F1068F61-2880-44C7-9964-5B7CFC1BCF33}.Release|mac-x64.Build.0 = Release|mac-x64
+		{F1068F61-2880-44C7-9964-5B7CFC1BCF33}.Release|win-x64.ActiveCfg = Release|win-x64
+		{F1068F61-2880-44C7-9964-5B7CFC1BCF33}.Release|win-x64.Build.0 = Release|win-x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -144,10 +144,10 @@ Global
 		{9664A833-5A9B-465A-AF4C-5B0785DB0FB5} = {C34FC239-FA05-4BBE-812E-4DD37A4CF380}
 		{4DDBFC4A-82E4-4592-972F-89114DBBBAC2} = {0015713A-F8F4-46B8-AD81-33F4588F2068}
 		{3DFE1172-8ADC-4DF8-A7F6-882D7CE0A25C} = {0015713A-F8F4-46B8-AD81-33F4588F2068}
-		{438EACD8-80C9-4E43-AD21-88A2A0575AC9} = {F3F9448B-F321-4827-A8B3-46400AEC0A1D}
 		{C218C3AB-BE65-43F3-BC99-1018640E545A} = {F3F9448B-F321-4827-A8B3-46400AEC0A1D}
-		{9762EC09-3C40-4AFE-89A6-3B812996C500} = {C34FC239-FA05-4BBE-812E-4DD37A4CF380}
 		{AE4ECD2E-C457-463B-A65C-5A549C7EAE13} = {0015713A-F8F4-46B8-AD81-33F4588F2068}
+		{438EACD8-80C9-4E43-AD21-88A2A0575AC9} = {F3F9448B-F321-4827-A8B3-46400AEC0A1D}
+		{F1068F61-2880-44C7-9964-5B7CFC1BCF33} = {C34FC239-FA05-4BBE-812E-4DD37A4CF380}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1E7EBB33-9161-49AB-8E97-0A020DFB8CFF}

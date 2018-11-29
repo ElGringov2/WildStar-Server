@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\..\..\default.props" />
+  <Import Project="..\..\..\..\default.props" />
   <PropertyGroup>
     <AssemblyName>arctium.manager</AssemblyName>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\deps\src\System.CommandLine\System.CommandLine.csproj" />
+    <ProjectReference Include="..\..\..\..\deps\src\System.CommandLine\System.CommandLine.csproj" />
     <ProjectReference Include="..\..\Arctium.Core\src\Arctium.Core.csproj" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

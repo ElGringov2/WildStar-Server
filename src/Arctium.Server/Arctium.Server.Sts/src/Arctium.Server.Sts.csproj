@@ -1,5 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\..\..\default.props" />
+  <Import Project="..\..\..\..\default.props" />
   <PropertyGroup>
     <AssemblyName>arctium.sts</AssemblyName>
     <OutputType>Exe</OutputType>
@@ -9,7 +9,7 @@
     <PackageReference Include="MySqlConnector" Version="0.48.0-beta2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\deps\src\System.CommandLine\System.CommandLine.csproj" />
-    <ProjectReference Include="..\..\Arctium.Core\src\Arctium.Core.csproj" />
+    <ProjectReference Include="..\..\..\..\deps\src\System.CommandLine\System.CommandLine.csproj" />
+    <ProjectReference Include="..\..\..\Arctium\Arctium.Core\src\Arctium.Core.csproj" />
   </ItemGroup>
 </Project>
