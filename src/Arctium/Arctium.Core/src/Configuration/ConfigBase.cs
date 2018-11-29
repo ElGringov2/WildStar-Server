@@ -142,11 +142,7 @@ namespace Arctium.Core.Configuration
                 fieldValue = value;
             }
 
-            // Use the properties backing field to set the value.
-            var backingFieldName = $"<{field.Name}>k__BackingField";
-            var backingField = field.DeclaringType.GetTypeInfo().DeclaredFields.SingleOrDefault(f => f.Name == backingFieldName);
-
-            backingField?.SetValue(obj, fieldValue);
+            field.SetValue(obj, fieldValue);
         }
     }
 }
