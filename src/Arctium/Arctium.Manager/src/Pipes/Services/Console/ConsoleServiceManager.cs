@@ -32,7 +32,7 @@ namespace Arctium.Manager.Pipes.Services.Console
 
             servers = new Dictionary<string, string>
             {
-                { "stsserver", $"{baseDir}/bin/arctium.sts{binExtension}" },
+                { "sts.server", $"{baseDir}/bin/arctium.server.sts{binExtension}" },
             };
 
             consolePipeClients = new Dictionary<string, IPCSession>();

@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\..\..\..\default.props" />
   <PropertyGroup>
-    <AssemblyName>arctium.server.character</AssemblyName>
+    <AssemblyName>arctium.socket.sts</AssemblyName>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\deps\src\System.CommandLine\System.CommandLine.csproj" />
     <ProjectReference Include="..\..\..\Arctium\Arctium.Core\src\Arctium.Core.csproj" />
   </ItemGroup>
 </Project>

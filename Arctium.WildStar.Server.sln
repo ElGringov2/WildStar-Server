@@ -27,6 +27,10 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Arctium.Shared", "src\Arcti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arctium.Server.Sts", "src\Arctium.Server\Arctium.Server.Sts\src\Arctium.Server.Sts.csproj", "{F1068F61-2880-44C7-9964-5B7CFC1BCF33}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sockets", "Sockets", "{2B3FC737-FD3D-4057-8C2B-8F998E218A0C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arctium.Socket.Sts", "src\Arctium.Socket\Arctium.Socket.Sts\src\Arctium.Socket.Sts.csproj", "{948366E6-7C03-4A51-9507-348EB193460D}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\Arctium\Arctium.Shared\src\Arctium.Shared.projitems*{438eacd8-80c9-4e43-ad21-88a2a0575ac9}*SharedItemsImports = 13
@@ -136,6 +140,18 @@ Global
 		{F1068F61-2880-44C7-9964-5B7CFC1BCF33}.Release|mac-x64.Build.0 = Release|mac-x64
 		{F1068F61-2880-44C7-9964-5B7CFC1BCF33}.Release|win-x64.ActiveCfg = Release|win-x64
 		{F1068F61-2880-44C7-9964-5B7CFC1BCF33}.Release|win-x64.Build.0 = Release|win-x64
+		{948366E6-7C03-4A51-9507-348EB193460D}.Debug|linux-x64.ActiveCfg = Debug|linux-x64
+		{948366E6-7C03-4A51-9507-348EB193460D}.Debug|linux-x64.Build.0 = Debug|linux-x64
+		{948366E6-7C03-4A51-9507-348EB193460D}.Debug|mac-x64.ActiveCfg = Debug|mac-x64
+		{948366E6-7C03-4A51-9507-348EB193460D}.Debug|mac-x64.Build.0 = Debug|mac-x64
+		{948366E6-7C03-4A51-9507-348EB193460D}.Debug|win-x64.ActiveCfg = Debug|win-x64
+		{948366E6-7C03-4A51-9507-348EB193460D}.Debug|win-x64.Build.0 = Debug|win-x64
+		{948366E6-7C03-4A51-9507-348EB193460D}.Release|linux-x64.ActiveCfg = Release|linux-x64
+		{948366E6-7C03-4A51-9507-348EB193460D}.Release|linux-x64.Build.0 = Release|linux-x64
+		{948366E6-7C03-4A51-9507-348EB193460D}.Release|mac-x64.ActiveCfg = Release|mac-x64
+		{948366E6-7C03-4A51-9507-348EB193460D}.Release|mac-x64.Build.0 = Release|mac-x64
+		{948366E6-7C03-4A51-9507-348EB193460D}.Release|win-x64.ActiveCfg = Release|win-x64
+		{948366E6-7C03-4A51-9507-348EB193460D}.Release|win-x64.Build.0 = Release|win-x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -148,6 +164,7 @@ Global
 		{AE4ECD2E-C457-463B-A65C-5A549C7EAE13} = {0015713A-F8F4-46B8-AD81-33F4588F2068}
 		{438EACD8-80C9-4E43-AD21-88A2A0575AC9} = {F3F9448B-F321-4827-A8B3-46400AEC0A1D}
 		{F1068F61-2880-44C7-9964-5B7CFC1BCF33} = {C34FC239-FA05-4BBE-812E-4DD37A4CF380}
+		{948366E6-7C03-4A51-9507-348EB193460D} = {2B3FC737-FD3D-4057-8C2B-8F998E218A0C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1E7EBB33-9161-49AB-8E97-0A020DFB8CFF}
