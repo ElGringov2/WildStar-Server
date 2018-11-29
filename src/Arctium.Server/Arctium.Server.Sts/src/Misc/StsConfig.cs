@@ -9,25 +9,25 @@ namespace Arctium.Server.Sts.Misc
     public class StsConfig : ConfigBase<StsConfig>
     {
         [ConfigEntry("Log.Level", LogTypes.All)]
-        public static LogTypes LogLevel { get; }
+        public static LogTypes LogLevel { get; private set; }
 
         [ConfigEntry("Log.Directory", "logs/sts")]
-        public static string LogDirectory { get; }
+        public static string LogDirectory { get; private set; }
 
         [ConfigEntry("Log.Console.File", "")]
-        public static string LogConsoleFile { get; }
+        public static string LogConsoleFile { get; private set; }
 
         [ConfigEntry("API.Host", "127.0.0.1")]
-        public static string ApiHost { get; }
+        public static string ApiHost { get; private set; }
 
         [ConfigEntry("API.Port", 5543)]
-        public static int ApiPort { get; }
+        public static int ApiPort { get; private set; }
 
         [ConfigEntry("Service.Console.Server", ".")]
-        public static string ServiceConsoleServer { get; }
+        public static string ServiceConsoleServer { get; private set; }
 
         [ConfigEntry("Service.Console.Server.Pipe", "")]
-        public static string ServiceConsolServerPipe { get; }
+        public static string ServiceConsolServerPipe { get; private set; }
     }
 }
 

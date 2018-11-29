@@ -9,15 +9,15 @@ namespace Arctium.Manager.Misc
     public class ManagerConfig : ConfigBase<ManagerConfig>
     {
         [ConfigEntry("Log.Level", LogTypes.All)]
-        public static LogTypes LogLevel { get; }
+        public static LogTypes LogLevel { get; private set; }
 
         [ConfigEntry("Log.Directory", "logs/manager")]
-        public static string LogDirectory { get; }
+        public static string LogDirectory { get; private set; }
 
         [ConfigEntry("Log.Console.File", "")]
-        public static string LogConsoleFile { get; }
+        public static string LogConsoleFile { get; private set; }
 
         [ConfigEntry("Service.Console.Name", "")]
-        public static string ServiceConsoleName { get; }
+        public static string ServiceConsoleName { get; private set; }
     }
 }

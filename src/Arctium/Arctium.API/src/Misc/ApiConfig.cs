@@ -11,30 +11,30 @@ namespace Arctium.API.Misc
     public class ApiConfig : ConfigBase<ApiConfig>
     {
         [ConfigEntry("API.Bind.Host", "127.0.0.1")]
-        public static string BindHost { get; }
+        public static string BindHost { get; private set; }
 
         [ConfigEntry("API.Bind.Port", 5543)]
-        public static int BindPort { get; }
+        public static int BindPort { get; private set; }
 
         [ConfigEntry("API.Auth", false)]
-        public static bool Auth { get; }
+        public static bool Auth { get; private set; }
 
         [ConfigEntry("API.Auth.Type", "")]
-        public static string AuthType { get; }
+        public static string AuthType { get; private set; }
 
         [ConfigEntry("API.Protocol", HttpProtocols.Http1)]
-        public static HttpProtocols Protocol { get; }
+        public static HttpProtocols Protocol { get; private set; }
 
         [ConfigEntry("API.Tls", false)]
-        public static bool Tls { get; }
+        public static bool Tls { get; private set; }
 
         [ConfigEntry("API.Tls.Certificate", "")]
-        public static string TlsCertificate { get; }
+        public static string TlsCertificate { get; private set; }
 
         [ConfigEntry("Database.Type", DatabaseType.MySql)]
-        public static DatabaseType DatabaseType { get; }
+        public static DatabaseType DatabaseType { get; private set; }
 
         [ConfigEntry("Database.Auth", default(DatabaseSettings))]
-        public static DatabaseSettings AuthDatabase { get; }
+        public static DatabaseSettings AuthDatabase { get; private set; }
     }
 }

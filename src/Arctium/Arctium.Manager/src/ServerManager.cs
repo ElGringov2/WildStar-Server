@@ -47,7 +47,7 @@ namespace Arctium.Manager
             // Parse command line args first.
             var argSyntax = ArgumentSyntax.Parse(args, syntax =>
             {
-                configFile = syntax.DefineOption("c|config", "../configs/Manager.conf").Value;
+                configFile = syntax.DefineOption("c|config", "configs/Manager.conf").Value;
             });
 
             // Read config file..
